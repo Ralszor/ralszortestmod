@@ -1,6 +1,6 @@
-local Dummy, super = Class(Encounter)
+local IndoctNoelle, super = Class(Encounter)
 
-function Dummy:init()
+function IndoctNoelle:init()
     super.init(self)
 
     -- Text displayed at the bottom of the screen at the start of the encounter
@@ -18,4 +18,8 @@ function Dummy:init()
     --self:addEnemy("dummy")
 end
 
-return Dummy
+function IndoctNoelle:createBackground()
+    return Game.battle:addChild(IndoctNoelleBG())
+end
+
+return IndoctNoelle
