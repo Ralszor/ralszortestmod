@@ -1,6 +1,6 @@
-local Dummy, super = Class(Encounter)
+local IndoctNoelle, super = Class(Encounter)
 
-function Dummy:init()
+function IndoctNoelle:init()
     super.init(self)
 
     -- Text displayed at the bottom of the screen at the start of the encounter
@@ -23,14 +23,8 @@ function Dummy:init()
     --self:addEnemy("dummy")
 end
 
-function Dummy:update()
-    super.update(self)
-    self.siner = self.siner + DTMULT
-    self.n.y = self.origy + math.sin(self.siner/20)*10
-    local hp = self.n.health / self.n.max_health
-    if hp < 0.5 then
-        self.sh.distance = 6 - (hp*12)
-    end
+function IndoctNoelle:createBackground()
+    return Game.battle:addChild(IndoctNoelleBG())
 end
 
-return Dummy
+return IndoctNoelle
