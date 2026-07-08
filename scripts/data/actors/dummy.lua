@@ -20,7 +20,7 @@ function actor:init()
     self.flip = nil
 
     -- Path to this actor's sprites (defaults to "")
-    self.path = "enemies/dummy"
+    self.path = "enemies/fake_frostveil_noelle"
     -- This actor's default sprite or animation, relative to the path (defaults to "")
     self.default = "idle"
 
@@ -41,7 +41,7 @@ function actor:init()
     self.animations = {
         -- Looping animation with 0.25 seconds between each frame
         -- (even though there's only 1 idle frame)
-        ["idle"] = { "idle", 0.25, true },
+        ["idle"] = { "idle", 1/10, true },
     }
 
     -- Table of sprite offsets (indexed by sprite name)
@@ -49,6 +49,11 @@ function actor:init()
         -- Since the width and height is the idle sprite size, the offset is 0,0
         ["idle"] = { 0, 0 },
     }
+    self.siner = 0
+end
+
+function actor:update()
+    super.update(self)
 end
 
 return actor
